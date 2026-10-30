@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070b14;
+  --foreground: #e8eefc;
+  --muted: #94a3b8;
+  --card: rgba(15, 23, 42, 0.72);
+  --card-solid: #0f172a;
+  --border: rgba(148, 163, 184, 0.18);
+  --accent: #818cf8;
+  --accent-2: #22d3ee;
+  --glow: rgba(99, 102, 241, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.28), transparent 55%),
+    radial-gradient(ellipse 40% 30% at 100% 0%, rgba(34, 211, 238, 0.12), transparent 45%),
+    radial-gradient(ellipse 35% 25% at 0% 30%, rgba(168, 85, 247, 0.1), transparent 50%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(129, 140, 248, 0.4);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+.surface-card {
+  background: linear-gradient(
+    165deg,
+    rgba(30, 41, 59, 0.85) 0%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 40px -20px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+}
+
+.surface-card-hover {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .surface-card-hover:hover {
+    border-color: rgba(129, 140, 248, 0.45);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 0 0 1px rgba(129, 140, 248, 0.12),
+      0 20px 50px -24px rgba(99, 102, 241, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #e0e7ff 0%, #a5b4fc 40%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.badge-hot {
+  background: linear-gradient(90deg, rgba(244, 63, 94, 0.2), rgba(249, 115, 22, 0.15));
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  color: #fda4af;
+}
+
+.badge-plat {
+  background: rgba(51, 65, 85, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+}
+
+.badge-cat {
+  background: rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  color: #c7d2fe;
+}
+
+.input-dark {
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: #e2e8f0;
+}
+
+.input-dark::placeholder {
+  color: #64748b;
+}
+
+.input-dark:focus {
+  border-color: rgba(129, 140, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  outline: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5 50%, #0891b2);
+  color: #fff;
+  box-shadow: 0 8px 24px -10px rgba(99, 102, 241, 0.7);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card-hover {
+    transition: none;
+  }
+  .surface-card-hover:hover {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
